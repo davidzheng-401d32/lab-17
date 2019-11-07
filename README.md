@@ -5,14 +5,12 @@
 ### Author: David Zheng 
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [submission PR](https://github.com/davidzheng-401d32/lab-17/pull/1)
+* [travis](https://travis-ci.com/davidzheng-401d32/lab-17/builds/135398030)(not passing)
+
 
 #### Documentation
-* [api docs](http://xyz.com) (API servers)
-* [jsdoc](http://xyz.com) (Server assignments)
+* [jsdoc](will include jsdocs at the next ACP)
 
 
 #### Running the app
@@ -22,10 +20,6 @@
 * Endpoint: `/bing/zing/`
   * Returns a JSON object with xyz in it.
   
-#### Tests
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
 
 #### UML
-
+Will include UML at the next ACP
