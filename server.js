@@ -7,22 +7,33 @@ const server = net.createServer();
 
 server.listen(port, () => console.log(`Server up on ${port}`) );
 
-let socketPool = {};
+const sockets = [];
 
 server.on('connection', (socket) => {
-  const id = `Socket-${Math.random()}`;
-  socketPool[id] = socket;
-  socket.on('data', (buffer) => dispatchEvent(buffer));
-  socket.on('close', () => {
-    delete socketPool[id];
+  sockets.push(socket);
+  socket.on('data', (buffer) => {
+    for(let socket of sockets) {
+      socket.write(buffer.toString());
+    }
   });
 });
 
-let dispatchEvent = (buffer) => {
-  let text = buffer.toString().trim();
-  for (let socket in socketPool) {
-    socketPool[socket].write(`${event} ${text}`);
-  }
-};
+// let socketPool = {};
+
+// server.on('connection', (socket) => {
+//   const id = `Socket-${Math.random()}`;
+//   socketPool[id] = socket;
+//   socket.on('data', (buffer) => dispatchEvent(buffer));
+//   socket.on('close', () => {
+//     delete socketPool[id];
+//   });
+// });
+
+// let dispatchEvent = (buffer) => {
+//   let text = buffer.toString().trim();
+//   for (let socket in socketPool) {
+//     socketPool[socket].write(`${event} ${text}`);
+//   }
+// };
 
 
